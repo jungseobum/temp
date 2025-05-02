@@ -30,7 +30,8 @@ def run_testcase(file_name):
         print(tc)
         os.system(tc)
     gcov_file="cov_result"
-    os.system("find " + srcpath + ' -name "*.gcda" -exec gcov -bc {} 1>'+gcov_file+' 2> err \;')
+    gcov_path="gcov-13"
+    os.system("find " + srcpath + ' -name "*.gcda" -exec '+gcov_path+' -bc {} 1>'+gcov_file+' 2> err \;')
     print("-------------------------------------------------------------------")
     os.system("find " + srcpath + ' -name "*.gcda" -exec rm {} \;')
     os.system("find " + srcpath + ' -name "*.gcov" -exec rm {} \;')
